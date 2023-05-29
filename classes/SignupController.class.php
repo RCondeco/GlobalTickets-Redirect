@@ -18,27 +18,27 @@ class SignupController extends Signup {
    public function doSignup() {
     if ($this->emptyInputs() == false) {
         //Inputs are empty
-        header("location: ..index.php?error=emptyinput");
+        header("location: ../index.php?error=emptyinput");
         exit();
     }
     if ($this->usernameValidation() == false) {
         //Username it's invalid
-        header("location: ..index.php?error=username");
+        header("location: ../index.php?error=username");
         exit();
     }
     if ($this->emailValidation() == false) {
         //Email it's invalid
-        header("location: ..index.php?error=email");
+        header("location: ../index.php?error=email");
         exit();
     }
     if ($this->passMatch() == false) {
         //Passwords don't match
-        header("location: ..index.php?error=passwordmatch");
+        header("location: ../index.php?error=passwordmatch");
         exit();
     }
     if ($this->userExists() == false) {
         // Username/email already exists
-        header("location: ..index.php?error=usertaken");
+        header("location: ../index.php?error=usertaken");
         exit();
     }
 
@@ -59,9 +59,8 @@ class SignupController extends Signup {
    }
 
    private function usernameValidation(){
-    $return;
 
-    if(!preg_match("/^[a-zA-Z0-9]*$", $this->username)){
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $this->username)){
         $return = false;
     }else{
         $return = true;

@@ -15,7 +15,7 @@ class Login extends Conn {
 
         if($stmt->rowCount() == 0){
             $stmt = null;
-            header("location: ../index.php?error=usernotfound");
+            header("location: ../index.php?error=usernotfound1");
             exit();
         }
         
@@ -27,7 +27,7 @@ class Login extends Conn {
             header("location: ../index.php?error=wrongpassword");
             exit();
         }elseif ($checkPass == true) {
-            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE (username = ? or email = ?) AND password = ?;');
+            $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? or email = ? AND password = ?;');
 
             if (!$stmt->execute(array($username, $username, $password))) {
                 $stmt = null;
@@ -37,7 +37,7 @@ class Login extends Conn {
 
             if($stmt->rowCount() == 0){
                 $stmt = null;
-                header("location: ../index.php?error=usernotfound");
+                header("location: ../index.php?error=usernotfound2");
                 exit();
             }
 
