@@ -2,10 +2,10 @@
 include './include/autoloader.php';
 session_start();
 
-if($_SESSION['userName']){
+if ($_SESSION['userName']) {
     $user = $_SESSION['userName'];
     $userID = $_SESSION['userID'];
-}else{
+} else {
     header("location: ../index.php?error=notLogged");
 }
 ?>
@@ -82,7 +82,7 @@ if($_SESSION['userName']){
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class="flex md:order-2">
                 <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Logout</button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
@@ -137,17 +137,17 @@ if($_SESSION['userName']){
                 <tbody>
                     <!-- PHP loop to generate table rows -->
                     <?php
-        // Sample data (replace with your own data or fetch from a database)
-        $users = [
-          ["John Doe", "john@example.com"],
-          ["Jane Smith", "jane@example.com"],
-          ["Mark Johnson", "mark@example.com"]
-        ];
+                    // Sample data (replace with your own data or fetch from a database)
+                    $users = [
+                        ["John Doe", "john@example.com"],
+                        ["Jane Smith", "jane@example.com"],
+                        ["Mark Johnson", "mark@example.com"]
+                    ];
 
-        foreach ($users as $user) {
-          $name = $user[0];
-          $email = $user[1];
-        ?>
+                    foreach ($users as $user) {
+                        $name = $user[0];
+                        $email = $user[1];
+                    ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4"><?php echo $name; ?></td>
                         <td class="px-6 py-4"><?php echo $email; ?></td>
