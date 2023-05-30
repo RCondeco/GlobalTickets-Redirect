@@ -23,7 +23,7 @@ class LoginController extends Login {
 
    //Error Handlers
    private function emptyInputs() {
-    $return;
+
 
     if(empty($this->username || $this->password)){
         $return = false;

@@ -18,27 +18,27 @@ class SignupController extends Signup {
    public function doSignup() {
     if ($this->emptyInputs() == false) {
         //Inputs are empty
-        header("location: ../index.php?error=emptyinput");
+        header("location: ../signup.php?error=emptyinput");
         exit();
     }
     if ($this->usernameValidation() == false) {
         //Username it's invalid
-        header("location: ../index.php?error=username");
+        header("location: ../signup.php?error=username");
         exit();
     }
     if ($this->emailValidation() == false) {
         //Email it's invalid
-        header("location: ../index.php?error=email");
+        header("location: ../signup.php?error=email");
         exit();
     }
     if ($this->passMatch() == false) {
         //Passwords don't match
-        header("location: ../index.php?error=passwordmatch");
+        header("location: ../signup.php?error=passwordmatch");
         exit();
     }
     if ($this->userExists() == false) {
         // Username/email already exists
-        header("location: ../index.php?error=usertaken");
+        header("location: ../signup.php?error=usertaken");
         exit();
     }
 
@@ -47,7 +47,7 @@ class SignupController extends Signup {
 
    //Error Handlers
    private function emptyInputs() {
-    $return;
+
 
     if(empty($this->username || $this->password || $this->passwordRepeat || $this->email)){
         $return = false;
@@ -70,7 +70,7 @@ class SignupController extends Signup {
    }
 
    private function emailValidation(){
-    $return;
+
 
     if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
         $return = false;
@@ -82,7 +82,7 @@ class SignupController extends Signup {
    }
 
    private function passMatch(){
-    $return;
+
 
     if($this->password !== $this->passwordRepeat){
         $return = false;
@@ -94,7 +94,6 @@ class SignupController extends Signup {
    }
 
    private function userExists(){
-    $return;
 
     if(!$this->checkUser($this->username, $this->email)){
         $return = false;

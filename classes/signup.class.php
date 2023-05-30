@@ -10,7 +10,7 @@ class Signup extends Conn {
 
         if (!$stmt->execute(array($username, $hashPass, $email))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: ../signup.php?error=stmtfailed");
             exit();
 
         }
@@ -24,12 +24,12 @@ class Signup extends Conn {
 
         if (!$stmt->execute(array($username, $email))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: ../signup.php?error=stmtfailed");
             exit();
 
         }
 
-        $return;
+        
         if ($stmt->rowCount() > 0) {
             $return = false;
         }else{
