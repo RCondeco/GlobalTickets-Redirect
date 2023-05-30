@@ -1,6 +1,6 @@
 <?php
 include '../include/autoloader.php';
-echo $_POST["submit"];
+
 if(isset($_POST["submit"]))
 {
     //Get Post data

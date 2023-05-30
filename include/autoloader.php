@@ -11,5 +11,15 @@ function AutoLoader($className) {
     }
     
     include_once $f_path;
+
+    $path2 = "../api/";
+    $ext2 = ".class.php";
+    echo $f_path = $path2 . $className . $ext2;
+
+    if(!file_exists($f_path)) {
+        return false;
+    }
+
+    include_once $f_path;
 }
 ?>
