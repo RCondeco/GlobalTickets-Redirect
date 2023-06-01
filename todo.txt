@@ -1,0 +1,3 @@
+**** Process GET messages ****
+**** Check why .htaccess for the endpoint api wasn't working ****
+**** Add https:// to the long url**** (done)
