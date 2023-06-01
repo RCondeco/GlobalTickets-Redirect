@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Maio-2023 às 01:38
+-- Tempo de geração: 01-Jun-2023 às 22:21
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -34,38 +34,6 @@ CREATE TABLE `url` (
   `User_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `url`
---
-
-INSERT INTO `url` (`ID`, `Long_URL`, `Short_URL`, `User_ID`) VALUES
-(1, 'https://www.youtube.com', 'AHHHH', 3),
-(2, 'sefsef', 'riiw', 3),
-(3, 'www.pornhub.com', 'kpr', 3),
-(4, 'test,cin', 'p1dl', 3),
-(5, 'test,cin', 'buol', 3),
-(6, 'test,cin', 'o2hk', 3),
-(7, 'WRECK', 'stql', 3),
-(8, 'WRECK2', 'hdn1', 3),
-(9, 'aaaa', 'm4bd', 3),
-(10, 'test1', 'm0q0', 3),
-(11, 'test1awf', 'hdg8', 3),
-(12, 'ef', '51ku', 3),
-(13, 'MONEY', 'p9bm', 3),
-(14, 'MONEY2', 'ho5v', 3),
-(15, 'moeny 3', 'rus4', 3);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `url_user`
---
-
-CREATE TABLE `url_user` (
-  `User_ID` int(11) NOT NULL,
-  `URL_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -78,13 +46,6 @@ CREATE TABLE `users` (
   `password` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `users`
---
-
-INSERT INTO `users` (`ID`, `username`, `password`, `email`) VALUES
-(3, 'admin', '$2y$10$yFp37FdI7TyHNu3ZHETsauf80zuYki1uM1jLnbUsp2yyi9W1DIzky', 'admin@admin.com');
 
 --
 -- Índices para tabelas despejadas
@@ -112,13 +73,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `url`
 --
 ALTER TABLE `url`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
