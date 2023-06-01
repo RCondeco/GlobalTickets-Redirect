@@ -7,6 +7,7 @@ Prerequisites:
 Installation Steps:
 
     Copy the project files to the appropriate location in the XAMPP installation directory. Typically, you can place the files in the htdocs folder located at C:\xampp\htdocs on Windows or /opt/lampp/htdocs on Linux.
+    Extract the project files to a folder called GlobalTickets-Redirect
     Start XAMPP by running the XAMPP control panel.
     In the XAMPP control panel, start the Apache and MySQL services by clicking on the "Start" buttons next to their respective names.
     Open a web browser and enter http://localhost/phpmyadmin in the address bar to access the phpMyAdmin interface.
