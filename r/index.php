@@ -1,28 +1,45 @@
 <?php
 include_once '../classes/conn.class.php';
-if (isset($_GET['error'])) {
+class URLRedirector extends Conn
+{
 
-    exit();
-} else {
+    public function processRedirect()
+    {
+        if (isset($_GET['r'])) {
+            $shortCode = $_GET['r'];
 
-    if (isset($_GET['r'])) {
-        $stmt = $pdo->connect()->prepare('SELECT Long_URL FROM url WHERE Short_URL = ?;');
+            $originalURL = $this->getOriginalURL($shortCode);
 
-        $short = $_GET['r'];
-
-
-        if (!$stmt->execute(array($short))) {
-            $stmt = null;
-            header("location: /index.php?error=stmtfailed");
-            exit();
+            if ($originalURL) {
+                $this->redirectToURL($originalURL);
+                exit;
+            }
         }
 
-        if ($stmt->rowCount() == 0) {
-            $stmt = null;
-            header("location: /index.php?error=urlnotfound");
-            exit();
+        // Redirect failed, handle accordingly
+        echo "Invalid or missing URL";
+    }
+
+    private function getOriginalURL($shortCode)
+    {
+        $stmt = $this->connect()->prepare('SELECT Long_url FROM url WHERE Short_url = :shortCode');
+        $stmt->bindParam(':shortCode', $shortCode);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && isset($result['Long_url'])) {
+            return $result['Long_url'];
         }
-        $short = $stmt->fetchAll();
-        header("location: " . $short[0]['Long_url']);
+
+        return null;
+    }
+
+    private function redirectToURL($url)
+    {
+        header("Location: https://" . $url);
     }
 }
+
+$redirector = new URLRedirector();
+$redirector->processRedirect();
