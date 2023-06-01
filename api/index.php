@@ -28,6 +28,10 @@ $shortUrl = $_POST['short_url'] ?? null;
 $longUrl = $_POST['long_url'] ?? null;
 $url_id = $_POST['url_id'] ?? null;
 $method = $_POST['method'] ?? null;
+
+if (!empty($longUrl) && strpos($longUrl, "https://") !== 0) {
+    $longUrl = "https://" . $longUrl;
+}
 // Instantiate the URLController and handle the request
 $controller = new UrlController($uid, $url_id, $shortUrl, $longUrl, $method);
 $controller->requestHandler();

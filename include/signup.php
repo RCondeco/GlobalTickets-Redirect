@@ -13,7 +13,7 @@ if(isset($_POST["submit"]))
     //Error Handlers
     $signup->doSignup();
     //Redirect to front page
-    header("location: ../index.php?error=none");
+    header("location: ../index.php?error=created");
 }
 
 ?>
